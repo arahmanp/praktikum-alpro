@@ -4,6 +4,7 @@ int main() {
     for(int i = a++; i <= ++b; i++) {
         for(int j = --a; j <= b--; j++) {
             hasil++;
+            std::cout << "dieksekusi\n";
         }
     }
     std::cout << hasil << '\n';
