@@ -17,7 +17,7 @@ int inputBarang(Barang daftarBarang[MAX_N]) {
 
     if(jml > MAX_N) {
         std::cout << "Maksimal " << MAX_N << " barang!\n";
-        return -1;
+        return 0;
     }
 
     std::cout << '\n';
@@ -67,9 +67,11 @@ void tampilkanStruk(Barang daftarBarang[MAX_N], int jml) {
 int main() {
     Barang daftarBarang[MAX_N];
 
-    int jmlBarang = inputBarang(daftarBarang);
+    int jml = inputBarang(daftarBarang);
 
-    tampilkanStruk(daftarBarang, jmlBarang);
+    if(jml) {
+        tampilkanStruk(daftarBarang, jml);
+    }
 
     return 0;
 }
