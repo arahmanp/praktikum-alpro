@@ -1,0 +1,22 @@
+IfStatement = "if" , Expression , "then" , { Statement } , [ else , { Statement } ] ;
+
+Program = { Statement } ;
+Statement = Assignment | MathOp | Print | Label | Jump | ConditionalJump ;
+Assignment = "assgn" , RegAddress , Number ;
+RegAddress = [ "0x" | "0X" ] , { HexCharacter } ;
+HexCharacter = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | 
+               "a" | "b" | "c" | "d" | "e" | "f" | "A" | "B" | "C" | "D" | "E" | "F" ;
+Number = [ "0" | "-" | "+" ] , { Digit } , [ "." , { Digit } ] ;
+Digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+MathOp = Operator , RegAddress , "," , RegAddress , RegAddress ;
+Operator = "add" | "subtr" | "multi" | "div" | "mod" ;
+Print = "print" , RegAddress ;
+Label = "." ,  Identifier ;
+Identifier = [ "_" ] , Letter , [ { Digit | "_" } ] ;
+Jump = "jmp" , Identifier ;
+ConditionalJump = "jeq" | "jlt" , RegAddress , RegAddress , Identifier ;
+Letter = LowerCaseLetter | UpperCaseLetter ;
+LowerCaseLetter = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | 
+                  "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" ;
+UpperCaseLetter = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | 
+                  "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" ;
